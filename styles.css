@@ -1,0 +1,43 @@
+.contenedor_fotos {
+    display: flex;
+    flex-flow: row;
+    width: 1000px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0px 10px 0px 10px;
+    align-items: center;
+    margin: 1px;
+}
+
+.contenedor_fotos>img {
+    margin: 5px;
+    height: 25px;
+    width: 25px;
+}
+
+.contenedor_fotos>div {
+    margin: 5px;
+    display: flex;
+    flex-flow: row;
+    padding: 5px;
+}
+
+.contenedor_fotos>div>h3, .contenedor_fotos>div>h4, .contenedor_fotos>div>h5 {
+    margin: 5px 20px 5px 20px;
+}
+
+.pantallaCuadros {
+    display: flex;
+    flex-flow: column;
+}
+
+.pantallaInputs {
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+}
+
+.pantallaInputs>input {
+    margin: 5px;
+}
