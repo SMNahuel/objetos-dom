@@ -10,29 +10,22 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div>
-                <button class="btn btn-dark">Primer pantalla</button>
-                <button class="btn btn-dark">Segunda pantalla</button>
+                <button class="btn btn-dark" onclick="mostrarPrimeraPantalla()">Primer pantalla</button>
+                <button class="btn btn-dark" onclick="mostrarSegundaPantalla()">Segunda pantalla</button>
             </div>
-            <div class="divPantalla pantallaInputs">
+            <div class="divPantalla pantallaInputs" id="primeraPantalla">
                 <select name="" id="selectScreen">                    
                 </select>                
                 <input required type="text" id="inputs_1" minlength="8">
                 <input type="text" id="inputs_2">
                 <button class="btn btn-dark" onclick="guardar()">Guardar</button>
             </div>
-            <div class="divPantalla pantallaCuadros">
-                <div class="contenedor_fotos">
-                    <input class="chk_imagenes">
-                    <img src="">
-                    <div>
-                        <h3></h3>
-                        <h4></h4>
-                        <h5></h5>
-                    </div>
+            <div class="divPantalla" id="segundaPantalla">
+                <div class="contenedor_fotos" id="contenedor_fotos">
                 </div>
-                <button class="btn btn-dark">Enviar</button>
+                <button class="btn btn-dark" onclick="eleminarElemento()">Enviar</button>
             </div>
         </div>
         <script src="funciones.js"></script>

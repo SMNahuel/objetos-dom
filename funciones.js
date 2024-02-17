@@ -1,3 +1,12 @@
+/* 
+Generar un nuevo vector de objetos (llamado “vectorObjetos2”) para poder almacenar las imágenes 
+que les proporcionan los docentes junto a tres textos que acompañen a cada imagen. 
+Cada objeto tendrá 4 parámetros, 
+un string con el nombre de la imagen y tres strings para los textos 
+que la acompañan. 
+Ya que les proporcionamos 4 imágenes, deberán tener 4 posiciones en dicho vector.
+*/
+
 class Objeto1 {
   constructor(texto1, texto2, texto3) {
     this.texto1 = texto1;
@@ -68,7 +77,7 @@ function corroborarLongitudInput1() {
 
 function corroborarInputs2() {
   if (document.getElementById("inputs_2").value.length === 0) {
-    return
+    return;
   }
   if (document.getElementById("inputs_2").value.length < 8) {
     return alert("Debe tener longitud de 8 o estar vacio");
@@ -95,9 +104,82 @@ function guardar() {
       }
     }
     console.log(vectorObjetos1);
-    return
+    return;
   }
-  alert("El segundo input debe ser vacio o tener longitud de 8")
+  alert("El segundo input debe ser vacio o tener longitud de 8");
 }
 
 agregarTexto1();
+
+/* Segunda parte */
+
+class Objeto2 {
+  constructor(imagen, text1, text2, text3) {
+    this.imgName = imagen;
+    this.text1 = text1;
+    this.text2 = text2;
+    this.text3 = text3;
+  }
+}
+
+const vectorObjestos2 = [
+  new Objeto2("1.jfif", "texto 1", "texto 2", "texto 3"),
+  new Objeto2("2.jfif", "texto 1", "texto 2", "texto 3"),
+  new Objeto2("3.jfif", "texto 1", "texto 2", "texto 3"),
+  new Objeto2("4.jfif", "texto 1", "texto 2", "texto 3"),
+];
+
+function mostrarPrimeraPantalla() {
+  document.getElementById("segundaPantalla").style.display = "none";
+  document.getElementById("primeraPantalla").style.display = "block";
+}
+
+function mostrarSegundaPantalla() {
+  document.getElementById("segundaPantalla").style.display = "block";
+  document.getElementById("primeraPantalla").style.display = "none";
+}
+
+mostrarPrimeraPantalla();
+
+function mostrarImagenes() {
+  let div = document.getElementById("segundaPantalla");
+
+  for (let i = 0; i < vectorObjestos2.length; i++) {
+    let container = document.createElement("div");
+    let checkbox = document.createElement("input");
+    checkbox.className = "messageCheckbox";
+    checkbox.type = "checkbox";
+    checkbox.name = "name";
+    checkbox.value = "value";
+    let text1 = document.createElement("h3");
+    let text2 = document.createElement("h4");
+    let text3 = document.createElement("h5");
+    let img = document.createElement("img");
+    img.src = vectorObjestos2[i].imgName;
+    text1.innerHTML = vectorObjestos2[i].text1;
+    text2.innerHTML = vectorObjestos2[i].text2;
+    text3.innerHTML = vectorObjestos2[i].text3;
+    container.id = i;
+    container.appendChild(img);
+    container.appendChild(checkbox);
+    container.appendChild(text1);
+    container.appendChild(text2);
+    container.appendChild(text3);
+    div.appendChild(container);
+  }
+}
+
+mostrarImagenes();
+
+function eleminarElemento() {
+  let select = document.getElementsByClassName("messageCheckbox");
+  let div = document.getElementById("segundaPantalla");
+  for (let i = 0; i < select.length; i++) {
+    if (select[i].checked) {
+      console.log(i)
+      let element = document.getElementById(i + 1);
+      div.removeChild(element)
+    }
+  }
+
+}
